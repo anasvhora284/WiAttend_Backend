@@ -178,3 +178,31 @@ def DeleteSession(request, session_id):
 
     session.delete()
     return Response({"message": "Session deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
+
+
+# Session Auth 
+@api_view(['GET'])
+def SessionAuth(request, session_id):
+    try: 
+        response = Session.objects.get(session_id=session_id)
+        if(response.session_id == session_id):
+            return  Response({"message": "Session Authenticated"}, status=status.HTTP_200_OK)
+    except Session.DoesNotExist:
+        return Response({"message": "Session Not Found"}, status=status.HTTP_404_NOT_FOUND)
+    
+    return Response({"message": "Session is not Authenticated"}, status=status.HTTP_401_UNAUTHORIZED)
+
+
+# Wifi Auth
+@api_view(['GET'])
+def WifiAuth(request, wifi_ip):
+    try: 
+        print(wifi_ip)
+        response = Session.objects.get(ip = wifi_ip)
+        print(response)
+        if(response.ip == wifi_ip):
+            return  Response({"message": "Wifi Authenticated"}, status=status.HTTP_200_OK)
+    except Session.DoesNotExist:
+        return Response({"message": "Wifi Not Found"}, status=status.HTTP_404_NOT_FOUND)
+    
+    return Response({"message": "Wifi is not Authenticated"}, status=status.HTTP_401_UNAUTHORIZED)
