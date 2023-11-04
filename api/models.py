@@ -16,11 +16,12 @@ class Student(models.Model):
 
 class Attendance(models.Model):
     enrollment_no = models.BigIntegerField()
-    date = models.DateField(null=True)
+    date = models.CharField(null=True, max_length=50)
     semester = models.IntegerField(null=True)
     branch = models.CharField(max_length=10, null=True)
     status = models.CharField(max_length=10, default="Absent")
     subject_code = models.IntegerField()
+    
 
 class Session(models.Model):
     session_id = models.BigIntegerField()

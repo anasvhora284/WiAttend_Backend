@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-d4e$n5m@l9($bem*gg#6e3c%(0q$&j5c9z06u*m1b#_5qhmb4)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.0.2.2', '127.0.0.1', '192.168.0.103', '192.168.0.102', '192.168.58.57']
+ALLOWED_HOSTS = ['10.0.2.2', '127.0.0.1', '192.168.0.103', '192.168.0.102', '192.168.58.57', '192.168.58.178', '192.168.45.178']
 
 
 # Application definition
@@ -89,7 +89,7 @@ DATABASES = {
             'NAME': 'Student_Attendance',
             'ENFORCE_SCHEMA': False,
             'CLIENT': {
-                'host': 'mongodb+srv://dhruvgodhani99:RsoIX8BE9mczssrS@cluster0.z8ky5aa.mongodb.net/'
+                'host': 'mongodb+srv://dhruvgodhani99:RsoIX8BE9mczssrS@cluster0.z8ky5aa.mongodb.net/?ssl=true&ssl_cert_reqs=CERT_NONE'
             }  
         }
 }

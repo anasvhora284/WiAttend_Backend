@@ -3,8 +3,6 @@ from .models import Faculty, Session, Student, Attendance
 
 
 class AttendanceSerializers(serializers.ModelSerializer):
-    date = serializers.DateField(format='%d-%m-%Y')
-
     class Meta:
         model = Attendance
         fields = '__all__'

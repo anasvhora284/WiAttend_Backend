@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from api.views import CreateAttendance,CreateStudent,Login,SignUp,GetAttendance,UploadImage,AddSession,DeleteSession
+from api.views import CreateAttendance,CreateStudent,Login,SignUp,GetAttendance,UploadImage,AddSession,DeleteSession,SessionAuth,WifiAuth
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +26,8 @@ urlpatterns = [
     path('api/get_attendance',GetAttendance),
     path('api/upload_image',UploadImage),
     path('api/addsession',AddSession),
-    path('api/deletesession/<int:session_id>',DeleteSession)
+    path('api/deletesession/<int:session_id>',DeleteSession),
+    path('api/sessionauth/<int:session_id>',SessionAuth),
+    path('api/wifiauth/<str:wifi_ip>',WifiAuth)
+
 ]
